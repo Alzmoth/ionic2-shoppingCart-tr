@@ -17,8 +17,11 @@ import { UrunDetayPage} from '../urun-detay/urun-detay'
 export class StokSayımPage {
 
   public resposeData: any;
+  public resposeData2: any;
   public dataSet: any[] = [];
   public kategori: any[] = [];
+  queryText:string;
+  secilenKategori:string;
   stokPostData = {
     "kategori": "",
     "search": ""
@@ -35,7 +38,7 @@ export class StokSayımPage {
   ionViewDidLoad() {
     //this.getFeed();
     this.getkategori();
-    this.getstok()
+    this.getstok();
   }
 
   getkategori() {
@@ -54,18 +57,32 @@ export class StokSayımPage {
 
   }
   getstok() {
-    this.common.presentLoading();
+   // this.common.presentLoading();
     this.authService.postData(this.stokPostData, "stok_sayim")
       .then((result) => {
-        this.resposeData = result;
-        this.common.closeLoading();
-        this.kategori = this.resposeData.feedData;
-        console.log(this.kategori);
+        this.resposeData2 = result;
+    
+        this.dataSet = this.resposeData2.feedData;
+        console.log(this.dataSet);
 
 
       }, (err) => {
         //Connection failed message
       });
+
+  }
+  public search(){
+  if(this.queryText.length > 3){
+    this.stokPostData.search=this.queryText;
+    this.getstok()
+  }
+
+  }
+  public kat() {
+    
+    this.stokPostData.kategori = this.secilenKategori;
+      this.getstok()
+    
 
   }
 

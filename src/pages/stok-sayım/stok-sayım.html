@@ -9,16 +9,16 @@
 
 <ion-content padding>
   <ion-toolbar>
-    <ion-searchbar placeholder="Search" [(ngModel)]="filterText" (ionInput)="getItems()">
+    <ion-searchbar placeholder="Search" [(ngModel)]="filterText" (ionInput)="search()">
 
     </ion-searchbar>
   </ion-toolbar>
   {{selectedCategory}}
-elimi ayağımı sikiyim
+elimi ayağımı sikiyimgit 
   <ion-list>
     <ion-item>
       <ion-label>Katogori secmek icin tıkla</ion-label>
-      <ion-select [(ngModel)]="secilenKategori" (ionChange)="getItems">
+      <ion-select [(ngModel)]="secilenKategori" (ionChange)="kat()">
         <ion-option *ngFor="let firma of kategori" value="{{firma.firma_kodu}}">
           {{firma.firma_adi}}
         </ion-option>
@@ -27,10 +27,10 @@ elimi ayağımı sikiyim
 
 
     <ion-list>
-      <button ion-item *ngFor="let urun of urunler" (click)="itemTapped($event,urun)">
-        {{urun.STOK_ADI}}
+      <button ion-item *ngFor="let urun of dataset" (click)="itemTapped($event,urun)">
+        {{urun.stok_adi}}
         <div item-right>
-          {{urun.SATIS_FIAT1}}
+          {{urun.stok_kodu}}
         </div>
       </button>
     </ion-list>

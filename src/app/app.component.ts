@@ -62,6 +62,7 @@ export class MyApp {
     localStorage.clear();
     this.menu.enable(false);
      setTimeout(()=> this.backToWelcome(), 1000);
+     this.nav.setRoot(Welcome);
     
   }
   openPage(page) {
