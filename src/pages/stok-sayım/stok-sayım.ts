@@ -20,7 +20,7 @@ export class StokSayımPage {
   public resposeData2: any;
   public dataSet: any[] = [];
   public kategori: any[] = [];
-  queryText:string;
+  queryText:any;
   secilenKategori:string;
   stokPostData = {
     "kategori": "",
@@ -57,13 +57,13 @@ export class StokSayımPage {
 
   }
   getstok() {
-   // this.common.presentLoading();
+   
     this.authService.postData(this.stokPostData, "stok_sayim")
       .then((result) => {
         this.resposeData2 = result;
-    
         this.dataSet = this.resposeData2.feedData;
         console.log(this.dataSet);
+        
 
 
       }, (err) => {
@@ -71,16 +71,19 @@ export class StokSayımPage {
       });
 
   }
-  public search(){
+  public search(queryText){
   if(this.queryText.length > 3){
     this.stokPostData.search=this.queryText;
     this.getstok()
+  }else{
+    this.stokPostData.search="";
   }
 
   }
   public kat() {
     
     this.stokPostData.kategori = this.secilenKategori;
+    console.log(this.stokPostData);
       this.getstok()
     
 
