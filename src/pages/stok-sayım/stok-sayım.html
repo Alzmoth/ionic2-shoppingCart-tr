@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Stok Sayım</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search" [(ngModel)]="filterText" (ionInput)="getItems()">
+
+    </ion-searchbar>
+  </ion-toolbar>
+  {{selectedCategory}}
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Katogori secmek icin tıkla</ion-label>
+      <ion-select [(ngModel)]="secilenKategori" (ionChange)="getItems">
+        <ion-option *ngFor="let firma of kategori" value="{{firma.firma_kodu}}">
+          {{firma.firma_adi}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-list>
+      <button ion-item *ngFor="let urun of urunler" (click)="itemTapped($event,urun)">
+        {{urun.STOK_ADI}}
+        <div item-right>
+          {{urun.SATIS_FIAT1}}
+        </div>
+      </button>
+    </ion-list>
+
+
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Stok Sayım listesi</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+ 
+
+  <ion-list  *ngFor="let item of sayimsepetUrun">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/laptops_product_page.jpg">
+      </ion-avatar>
+      <h4>{{item.urun.stok_adi}}</h4>
+      <p>{{item.urun.stok_adet}}</p>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block color="primary" (click)="kaydet()">kaydet</button>
+
+
+</ion-content>
