@@ -3,21 +3,32 @@ import { StokSayımPage } from '../pages/stok-sayım/stok-sayım';
 import { Urun } from '../entities/sayimurun'
 import { SayimSepetUrun } from '../entities/sayim-sepet-urun'
 import { stok_sepet_list } from '../entities/stok-sepet-list'
+import { AuthService} from './auth-service'
 
 @Injectable()
 export class stoksepetprovider {
 
   sayimsepetUrun: SayimSepetUrun[];
-  constructor() {
+  public userDetails: any;
+  userPostData = {
+    "user_id": "",
+    "token": "",
+    "stok_kayit_id": "",
+  };
+  gelenveri:any;
 
-
+  constructor(public authService: AuthService) {
+    const data = JSON.parse(localStorage.getItem('userData'));
+    this.userDetails = data.userData;
+    this.userPostData.user_id = this.userDetails.user_id;
+    this.userPostData.token = this.userDetails.token;
   }
 
   addToCart(urun: Urun): void {
     var addedItem = stok_sepet_list.find(t => t.urun.stok_kodu == urun.stok_kodu);
     if (addedItem) {
 
-      addedItem.urun.stok_adet = (urun.stok_adet * 1) + (addedItem.urun.stok_adet * 1);
+      addedItem.urun.stok_adet = (urun.stok_adet * 1) ;
       console.log("girmemesi gerekiyor" + addedItem.urun.stok_adet)
     }
     else {
@@ -45,6 +56,22 @@ export class stoksepetprovider {
     if (indexNo != -1) {
       stok_sepet_list.splice(indexNo, 1);
     }
+  }
+  stokkayit(){
+    console.log(this.userPostData)
+    
+    
+    this.authService
+      .postData(this.userPostData, "stok_kayit_id")//fatura id ve isim
+      .then((result) => {
+        this.gelenveri = result;
+        console.log(this.gelenveri)
+
+      }, (err) => {
+        //Connection failed message
+      });
+
+
   }
 
 }

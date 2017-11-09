@@ -44,8 +44,8 @@ export class MyApp {
     });
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'StokSayim', component: StokSayımPage },
-      { title: 'StokListesi', component: StokSayımPage },
+      { title: 'StokSayim', component: TabsPage },
+      { title: 'stok sepeti', component: StokSepetPage },
 
     ];
 

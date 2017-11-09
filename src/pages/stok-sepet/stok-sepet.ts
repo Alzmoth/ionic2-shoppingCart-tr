@@ -41,27 +41,9 @@ export class StokSepetPage {
 
   }
 
-  kaydet(){ //kaydetme
-    /*
-    if (this.sayimsepetUrun) {
-      this.common.presentLoading();
-      this.authService
-        .postData(this.sayimsepetUrun, "feedUpdate")
-        .then((result) => {
-          this.resposeData = result;
-          if (this.resposeData.feedData) {
-            this.common.closeLoading();
-            this.dataSet.unshift(this.resposeData.feedData);
-            this.userPostData.feed = "";
-          } else {
-            console.log("No access");
-          }
+  kaydet(){ 
+    this.stoksepetservis.stokkayit();
 
-        }, (err) => {
-          //Connection failed message
-        });
-    }
-*/
   }
   stoksayim(){ // yonlendirme
 
