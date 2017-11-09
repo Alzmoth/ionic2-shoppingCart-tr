@@ -65,6 +65,16 @@ export class stoksepetprovider {
       .postData(this.userPostData, "stok_kayit_id")//fatura id ve isim
       .then((result) => {
         this.gelenveri = result;
+        console.log(stok_sepet_list)
+
+      }, (err) => {
+        //Connection failed message
+      });
+
+    this.authService
+      .postData(stok_sepet_list, "stok_kayit_id")//fatura id ve isim
+      .then((result) => {
+        this.gelenveri = result;
         console.log(this.gelenveri)
 
       }, (err) => {

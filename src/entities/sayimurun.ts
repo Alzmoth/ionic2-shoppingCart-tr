@@ -6,4 +6,5 @@ export class Urun {
     barkod: number;
     stok_adet: number;
     guncelleme_tarih: number;
+    
 }
