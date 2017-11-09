@@ -1,9 +1,4 @@
-<!--
-  Generated template for the StokListePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -15,7 +10,14 @@
 
 <ion-content padding>
 
-
+<ion-list no lines [virtualScroll]="dataSet" aproxItemHeight="40px">
+  <ion-item *virtualItem="let item">
+    <p [innerHTML]="item.fatura_no"></p>
+    <p [innerHTML]="item.username"></p>
+    
+   <ion-item> {{saatCevir(item.fatura_tarih) |date: 'dd/MM/yyyy H:mm'}} </ion-item> 
+  </ion-item>
+</ion-list>
 
 
 </ion-content>

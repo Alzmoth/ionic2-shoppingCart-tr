@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
 import { AuthService } from "../../providers/auth-service";
+import {StokSepetPage} from '../stok-sepet/stok-sepet'
+import { MomentModule } from 'angular2-moment';
 /**
  * Generated class for the StokListePage page.
  *
@@ -25,7 +27,8 @@ export class StokListePage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public authService: AuthService) {
+    public authService: AuthService,
+    public app:App) {
       
   }
 
@@ -49,5 +52,15 @@ export class StokListePage {
       });
 
   }
+  saatCevir(time) {
+
+    let a = new Date(time * 1000);
+    return a;
+  }
+  
+  itemTapped(event, urun){
+    this.navCtrl.push(StokSepetPage, { item: urun });
+  }
 
 }
+

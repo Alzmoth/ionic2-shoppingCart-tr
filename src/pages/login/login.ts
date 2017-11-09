@@ -34,7 +34,7 @@ export class Login {
     console.log(this.resposeData);
     if(this.resposeData.userData){
      localStorage.setItem('userData', JSON.stringify(this.resposeData) )
-     this.navCtrl.push(SiparisTabsPage);
+     this.navCtrl.setRoot(SiparisTabsPage);
   }
   else{
     this.presentToast("Please give valid username and password");
