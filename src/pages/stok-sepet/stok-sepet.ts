@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { stoksepetprovider } from '../../providers/stok-sepet-provider'
 import {SayimSepetUrun} from '../../entities/sayim-sepet-urun'
 import {StokSayımPage} from '../stok-sayım/stok-sayım'
@@ -22,7 +22,8 @@ export class StokSepetPage {
     public navParams: NavParams,
     public stoksepetservis: stoksepetprovider,
     public common: Common,
-    public authService: AuthService) {
+    public authService: AuthService,
+    public toastController: ToastController) {
   }
   //componentler
   public userDetails: any;
@@ -34,7 +35,7 @@ export class StokSepetPage {
 
   ionViewDidLoad() {
     this.sayimsepetUrun = this.stoksepetservis.list();
-    console.log(this.sayimsepetUrun)
+    
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data.userData;
     
@@ -43,11 +44,16 @@ export class StokSepetPage {
 
   kaydet(){ 
     this.stoksepetservis.stokkayit();
-
+    this.showToast();
   }
-  stoksayim(){ // yonlendirme
-
-    this.navCtrl.push(StokSayımPage);
+ 
+  showToast() {
+    let toast = this.toastController.create({
+      message: 'Liste kaydedildi',
+      duration: 3000,
+      position: 'middle'
+    });
+    toast.present();
   }
  
 

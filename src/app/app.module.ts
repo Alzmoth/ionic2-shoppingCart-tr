@@ -13,7 +13,12 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StokSayımPage } from '../pages/stok-sayım/stok-sayım'
 import { StokSepetPage } from '../pages/stok-sepet/stok-sepet'
+
+
 import { UrunDetayPage } from '../pages/urun-detay/urun-detay'
+import { StokListeDetayPage } from '../pages/stok-liste-detay/stok-liste-detay'
+import { StokListeDetayPageModule } from '../pages/stok-liste-detay/stok-liste-detay.module'
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -45,8 +50,8 @@ import { stoksepetprovider } from '../providers/stok-sepet-provider';
     HomePage,
     TabsPage,
     SiparisTabsPage,
-    
     UrunDetayPage,
+    StokListeDetayPage
 
   ],
   imports: [
@@ -67,9 +72,8 @@ import { stoksepetprovider } from '../providers/stok-sepet-provider';
     HomePage,
     TabsPage,
     SiparisTabsPage,
-    
-    
     UrunDetayPage,
+    StokListeDetayPage
 
   ],
   providers: [

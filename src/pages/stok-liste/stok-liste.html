@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar>
@@ -10,14 +9,30 @@
 
 <ion-content padding>
 
-<ion-list no lines [virtualScroll]="dataSet" aproxItemHeight="40px">
-  <ion-item *virtualItem="let item">
-    <p [innerHTML]="item.fatura_no"></p>
-    <p [innerHTML]="item.username"></p>
-    
-   <ion-item> {{saatCevir(item.fatura_tarih) |date: 'dd/MM/yyyy H:mm'}} </ion-item> 
-  </ion-item>
-</ion-list>
+  <ion-list no lines [virtualScroll]="dataSet" aproxItemHeight="40px">
+    <ion-item *virtualItem="let item">
+      <button ion-item (click)="itemTapped($event,item)">
+        <ion-icon name="trash" item-right (click)="feedDelete(item.feed_id, msgIndex)"></ion-icon>
+        <ion-card-content>
+
+          <span>fatura No:
+            <b> {{item.fatura_no}}</b>
+          </span>
+          <p>
+            <span>Kayıt Eden: {{item.username}} </span>
+          </p>
+
+          <p>
+            <span> {{saatCevir(item.fatura_tarih) |date: 'dd/MM/yyyy H:mm'}} </span>
+          </p>
+
+
+
+
+        </ion-card-content>
+      </button>
+    </ion-item>
+  </ion-list>
 
 
 </ion-content>

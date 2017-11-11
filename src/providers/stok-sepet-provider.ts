@@ -9,12 +9,24 @@ import { AuthService} from './auth-service'
 export class stoksepetprovider {
 
   sayimsepetUrun: SayimSepetUrun[];
+  public dataSet: any[] = [];
+  public dataSet1: any[] = [];
   public userDetails: any;
+  postData:Urun;
   userPostData = {
     "user_id": "",
     "token": "",
     "stok_kayit_id": "",
   };
+  stokPostData = {
+    barkod:0 ,
+    "firma_kodu": "",
+    stok_adet:3 ,
+    "stok_adi": "",
+    "stok_kodu": "",
+    "fatura_no":""
+  };
+
   gelenveri:any;
 
   constructor(public authService: AuthService) {
@@ -65,21 +77,31 @@ export class stoksepetprovider {
       .postData(this.userPostData, "stok_kayit_id")//fatura id ve isim
       .then((result) => {
         this.gelenveri = result;
-        console.log(stok_sepet_list)
+        this.dataSet = this.gelenveri.feedData;
+        this.stokPostData.fatura_no = this.gelenveri.feedData.fatura_no;
+       
+        //console.log(stok_sepet_list)
 
       }, (err) => {
         //Connection failed message
       });
-
-    this.authService
-      .postData(stok_sepet_list, "stok_kayit_id")//fatura id ve isim
-      .then((result) => {
+    stok_sepet_list.forEach(element => {
+      
+      this.stokPostData.firma_kodu = element.urun.firma_kodu;
+      this.stokPostData.stok_kodu = element.urun.stok_kodu;
+      this.stokPostData.stok_adi = element.urun.stok_adi;
+      this.stokPostData.barkod = element.urun.barkod;
+      this.stokPostData.stok_adet = element.urun.stok_adet;
+      console.log(this.stokPostData)
+      this.authService.postData(this.stokPostData, "stok_kayit").then((result) => {
         this.gelenveri = result;
-        console.log(this.gelenveri)
-
-      }, (err) => {
-        //Connection failed message
+        this.dataSet = this.gelenveri.feedData;
+        
       });
+    });
+    stok_sepet_list.splice(0,stok_sepet_list.length);
+    console.log(stok_sepet_list );
+
 
 
   }

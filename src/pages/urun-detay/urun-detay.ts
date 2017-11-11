@@ -23,7 +23,7 @@ export class UrunDetayPage {
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UrunDetayPage');
+ 
   }
 
   
@@ -39,7 +39,7 @@ export class UrunDetayPage {
     let toast=this.toastController.create({
       message:'Urun Sayim Listesine Eklendi',
       duration:1000,
-      position:'top'
+      position:'middle'
     });
     toast.present();
   }

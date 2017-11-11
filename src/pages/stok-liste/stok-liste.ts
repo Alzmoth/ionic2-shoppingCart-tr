@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { AuthService } from "../../providers/auth-service";
-import {StokSepetPage} from '../stok-sepet/stok-sepet'
+import { StokSepetPage } from '../stok-sepet/stok-sepet'
 import { MomentModule } from 'angular2-moment';
+import { StokListeDetayPage } from '../stok-liste-detay/stok-liste-detay'
 /**
  * Generated class for the StokListePage page.
  *
@@ -20,7 +21,7 @@ export class StokListePage {
   public resposeData: any;
   public dataSet: any[] = [];
 
-   stokPostData = {
+  stokPostData = {
     "user_id": "",
     "token": "",
     "stok_kayit_id": "",
@@ -28,8 +29,8 @@ export class StokListePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public authService: AuthService,
-    public app:App) {
-      
+    public app: App) {
+
   }
 
   ionViewDidLoad() {
@@ -57,9 +58,10 @@ export class StokListePage {
     let a = new Date(time * 1000);
     return a;
   }
-  
-  itemTapped(event, urun){
-    this.navCtrl.push(StokSepetPage, { item: urun });
+
+  itemTapped(event, item) {
+    this.navCtrl.push(StokListeDetayPage, { item: item });
+    console.log(item)
   }
 
 }

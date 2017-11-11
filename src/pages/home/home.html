@@ -17,7 +17,7 @@
     </ion-row>
   </ion-item>
 
-<!-- <ion-card *ngFor="let item of dataSet; let msgIndex = index">
+  <ion-card *ngFor="let item of dataSet; let msgIndex = index">
     <ion-item>
       <ion-icon name="trash" item-right (click)="feedDelete(item.feed_id, msgIndex)"></ion-icon>
       <ion-card-content>
@@ -26,13 +26,7 @@
         <span>{{this.converTime(item.created) | amTimeAgo}}</span>
       </ion-card-content>
     </ion-item>
-  </ion-card>-->
-  <ion-list no lines [virtualScroll]="dataSet" aproxItemHeight="40px">
-    <ion-item *virtualItem="let item">
-      <p [innerHTML]="item.feed | linky"></p>
-      <span>{{this.converTime(item.created) | amDateFormat:'DD/MM/YYYY' }}</span>
-    </ion-item>
-  </ion-list>
+  </ion-card>
 
   <!--<button ion-button color="primary" (click)="logout()">Logout</button>-->
 </ion-content>
