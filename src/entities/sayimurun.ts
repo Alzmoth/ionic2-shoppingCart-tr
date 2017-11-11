@@ -5,6 +5,6 @@ export class Urun {
     firma_kodu: string;
     barkod: number;
     stok_adet: number;
-    fatura_no: number;
+    fatura_no: string;
     
 }

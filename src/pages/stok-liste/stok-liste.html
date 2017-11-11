@@ -9,9 +9,8 @@
 
 <ion-content padding>
 
-  <ion-list no lines [virtualScroll]="dataSet" aproxItemHeight="40px">
-    <ion-item *virtualItem="let item">
-      <button ion-item (click)="itemTapped($event,item)">
+  
+      <button ion-item *ngFor="let item of dataSet" (click)="itemTapped($event,item)">
         <ion-icon name="trash" item-right (click)="feedDelete(item.feed_id, msgIndex)"></ion-icon>
         <ion-card-content>
 
@@ -31,8 +30,7 @@
 
         </ion-card-content>
       </button>
-    </ion-item>
-  </ion-list>
+
 
 
 </ion-content>

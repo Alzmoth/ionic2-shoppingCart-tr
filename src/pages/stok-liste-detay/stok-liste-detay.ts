@@ -26,7 +26,7 @@ export class StokListeDetayPage {
 
     this.gelen = navParams.get('item');
     
-   
+   console.log(this.gelen)
   }
 
   ionViewDidLoad() {

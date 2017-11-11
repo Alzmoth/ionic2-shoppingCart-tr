@@ -13,6 +13,7 @@ export class stoksepetprovider {
   public dataSet1: any[] = [];
   public userDetails: any;
   postData:Urun;
+  gelen:any;
   userPostData = {
     "user_id": "",
     "token": "",
@@ -74,36 +75,51 @@ export class stoksepetprovider {
     
     
     this.authService
-      .postData(this.userPostData, "stok_kayit_id")//fatura id ve isim
+      .postData(this.userPostData, "stok_kayit_id")//fatura id ve isim kaydediliyor ve fatura no çagırılıyor ve kullanılıyor
       .then((result) => {
         this.gelenveri = result;
         this.dataSet = this.gelenveri.feedData;
-        this.stokPostData.fatura_no = this.gelenveri.feedData.fatura_no;
        
+       
+       
+        
+        for (var index = 0; index < stok_sepet_list.length; index++) {
+          var element = stok_sepet_list[index];
+          element.urun.fatura_no=this.gelenveri.feedData.fatura_no;
+          this.stokPostData.fatura_no = element.urun.fatura_no;
+          this.stokPostData.firma_kodu = element.urun.firma_kodu;
+          this.stokPostData.stok_kodu = element.urun.stok_kodu;
+          this.stokPostData.stok_adi = element.urun.stok_adi;
+          this.stokPostData.barkod = element.urun.barkod;
+          this.stokPostData.stok_adet = element.urun.stok_adet;
+          console.log("giden veri=",element)
+          
+          this.authService.postData(element.urun, "stok_kayit").then((result) => {
+            this.gelen = result;
+            this.dataSet = this.gelen.feedData;
+
+            this.stokPostData.fatura_no = "";
+
+          });
+          index++;
+        }
+        stok_sepet_list.splice(0, stok_sepet_list.length);
         //console.log(stok_sepet_list)
 
       }, (err) => {
         //Connection failed message
       });
-    stok_sepet_list.forEach(element => {
-      
-      this.stokPostData.firma_kodu = element.urun.firma_kodu;
-      this.stokPostData.stok_kodu = element.urun.stok_kodu;
-      this.stokPostData.stok_adi = element.urun.stok_adi;
-      this.stokPostData.barkod = element.urun.barkod;
-      this.stokPostData.stok_adet = element.urun.stok_adet;
-      console.log(this.stokPostData)
-      this.authService.postData(this.stokPostData, "stok_kayit").then((result) => {
-        this.gelenveri = result;
-        this.dataSet = this.gelenveri.feedData;
-        
-      });
-    });
-    stok_sepet_list.splice(0,stok_sepet_list.length);
-    console.log(stok_sepet_list );
+    
+    
+  
+  }
+  urunkaydet(){
+    
 
 
-
+    // urunler faturaid ye geri veritabanına kaydediliyor
+   
+    
   }
 
 }
