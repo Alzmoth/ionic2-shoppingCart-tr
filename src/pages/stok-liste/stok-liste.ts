@@ -61,7 +61,7 @@ export class StokListePage {
 
   itemTapped(event, item) {
     this.navCtrl.push(StokListeDetayPage, { item: item });
-    console.log(item)
+    console.log("gönderilen item",item)
   }
 
 }

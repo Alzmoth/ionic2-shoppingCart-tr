@@ -14,30 +14,44 @@
 
 
 <ion-content padding>
-  hello
+  <ion-item>
+<span>
+  <b> Stok Sayım Numarası: {{this.gelen.fatura_no}}</b>
+</span>
+<p>
+<span>Olusturan Kisi: {{this.gelen.username}} </span>
+</p>
+
+
+
+<p>
+  <span> Sayım Yapılan Zaman: {{this.gelen.fatura_no}} </span>
+</p>  
+
+  </ion-item>
+  
+   
+   
+   
 <ion-item *ngFor="let item of dataSet">
-  {{item.stok_adi}}
+ 
   <ion-grid>
     <ion-row>
       <ion-col col-6>
-        <div>{{item.stok_adi}}</div>
+        <div>Stok Adı:{{item.stok_adi}}</div>
       </ion-col>
-      <ion-col>
-        <div>{{item.stok_kodu}}</div>
-      </ion-col>
+     
     </ion-row>
     <ion-row>
+     
       <ion-col>
-        <div>{{item.stok_adi}}</div>
-      </ion-col>
-      <ion-col col-6>
-        <div>Stok Adedi: {{item.stok_adet}}</div>
+        <div>Kodu:{{item.stok_kodu}}</div>
       </ion-col>
       <ion-col>
-        <div>{{item.firma_kodu}}</div>
+        <div>Stok Adedi: {{item.stok_adet}} </div>
       </ion-col>
       <ion-col>
-        <div>{{item.barkod}}</div>
+        <div>Barkod:{{item.barkod}}</div>
       </ion-col>
     </ion-row>
   </ion-grid>

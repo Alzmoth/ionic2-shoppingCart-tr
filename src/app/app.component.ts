@@ -9,6 +9,7 @@ import { StokSayımPage } from '../pages/stok-sayım/stok-sayım'
 import {TabsPage} from '../pages/tabs/tabs'
 import { SiparisTabsPage } from '../pages/siparis-tabs/siparis-tabs'
 import {StokSepetPage} from '../pages/stok-sepet/stok-sepet'
+import { StokListePage} from '../pages/stok-liste/stok-liste'
 
 
 export interface PageInterface {
@@ -43,9 +44,10 @@ export class MyApp {
       splashScreen.hide();
     });
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'StokSayim', component: TabsPage },
-      { title: 'stok sepeti', component: StokSepetPage },
+      { title: 'Siparis', component: SiparisTabsPage },
+      { title: 'Stok Sayim', component: TabsPage },
+      { title: 'Stok sepeti', component: StokSepetPage },
+      { title: 'Sayim Listesi', component: StokListePage },
 
     ];
 
