@@ -36,7 +36,9 @@ export class MyApp {
   rootPage:any = Welcome;
   pages: Array<{ title: string, component: any }>;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public app: App, public splitPane: SplitPane, public menu: MenuController) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
+    public app: App, public splitPane: SplitPane, 
+    public menu: MenuController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -47,7 +49,7 @@ export class MyApp {
       { title: 'Siparis', component: SiparisTabsPage },
       { title: 'Stok Sayim', component: TabsPage },
       { title: 'Stok sepeti', component: StokSepetPage },
-      { title: 'Sayim Listesi', component: StokListePage },
+      { title: 'Sayim Listesi', component: StokListePage }
 
     ];
 

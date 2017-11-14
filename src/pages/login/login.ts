@@ -31,10 +31,10 @@ export class Login {
    if(this.userData.username && this.userData.password){
     this.authService.postData(this.userData, "login").then((result) =>{
     this.resposeData = result;
-    console.log(this.resposeData);
+   
     if(this.resposeData.userData){
      localStorage.setItem('userData', JSON.stringify(this.resposeData) )
-     this.navCtrl.setRoot(SiparisTabsPage);
+     this.navCtrl.setRoot(SiparisTabsPage, {}, { animate: false });
   }
   else{
     this.presentToast("Please give valid username and password");

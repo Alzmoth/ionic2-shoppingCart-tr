@@ -31,7 +31,7 @@ export class Welcome {
   }
 
   login(){
-   this.navCtrl.push(Login);
+   this.navCtrl.push(Login,{},{animate:false});
   }
 
   signup(){

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage,   } from 'ionic-angular';
 import { SiparisListePage } from "../siparis-liste/siparis-liste";
 import { SiparisSepetPage } from "../siparis-sepet/siparis-sepet";
 import { SiparisSatisPage } from "../siparis-satis/siparis-satis";
@@ -18,13 +18,13 @@ import { SiparisSatisPage } from "../siparis-satis/siparis-satis";
 })
 export class SiparisTabsPage {
 
-  urunlerRoot = 'SiparisSatisPage'
-  sepetRoot = 'SiparisSepetPage'
-  siparislerRoot = 'SiparisListePage'
+  urunlerRoot = SiparisSatisPage;
+  sepetRoot = SiparisSepetPage;
+  siparislerRoot = SiparisListePage;
 
 
-  constructor(public navCtrl: NavController) { 
-    console.log("asd");
+  constructor() { 
+   
 
   }
   

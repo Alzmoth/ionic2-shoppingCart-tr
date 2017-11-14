@@ -33,13 +33,14 @@ export class UrunDetayPage {
     this.showToast(); 
     console.log(this.selectedUrun)
     
+      this.navCtrl.pop();
     
   }
   showToast(){
     let toast=this.toastController.create({
       message:'Urun Sayim Listesine Eklendi',
       duration:1000,
-      position:'middle'
+      position:'bottom'
     });
     toast.present();
   }

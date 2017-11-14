@@ -9,9 +9,10 @@
 
 <ion-content padding>
 
+
   
-      <button ion-item *ngFor="let item of dataSet" (click)="itemTapped($event,item)">
-        <ion-icon name="trash" item-right (click)="feedDelete(item.feed_id, msgIndex)"></ion-icon>
+         
+        <ion-card *ngFor="let item of dataSet" (click)="itemTapped($event,item)">
         <ion-card-content>
 
           <span>fatura No:
@@ -29,7 +30,8 @@
 
 
         </ion-card-content>
-      </button>
+        </ion-card>
+     
 
 
 

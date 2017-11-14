@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { stoksepetprovider } from '../../providers/stok-sepet-provider'
-import {SayimSepetUrun} from '../../entities/sayim-sepet-urun'
-import {StokSayımPage} from '../stok-sayım/stok-sayım'
+import { SayimSepetUrun } from '../../entities/sayim-sepet-urun'
+import { StokSayımPage } from '../stok-sayım/stok-sayım'
 import { Common } from "../../providers/common";
 import { AuthService } from "../../providers/auth-service";
 /**
@@ -29,24 +29,24 @@ export class StokSepetPage {
   public userDetails: any;
 
 
-//liste adı ve userid de gönderilmesi gerekiyor
+  //liste adı ve userid de gönderilmesi gerekiyor
 
   sayimsepetUrun: SayimSepetUrun[] = [];
 
   ionViewDidLoad() {
     this.sayimsepetUrun = this.stoksepetservis.list();
-    
+
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data.userData;
-    
+
 
   }
 
-  kaydet(){ 
+  kaydet() {
     this.stoksepetservis.stokkayit();
     this.showToast();
   }
- 
+
   showToast() {
     let toast = this.toastController.create({
       message: 'Liste kaydedildi',
@@ -55,6 +55,6 @@ export class StokSepetPage {
     });
     toast.present();
   }
- 
+
 
 }

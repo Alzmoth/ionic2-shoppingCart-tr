@@ -80,19 +80,14 @@ export class stoksepetprovider {
         this.gelenveri = result;
         this.dataSet = this.gelenveri.feedData;
        
-       
+     
        
         
         for (var index = 0; index < stok_sepet_list.length; index++) {
           var element = stok_sepet_list[index];
           element.urun.fatura_no=this.gelenveri.feedData.fatura_no;
-          this.stokPostData.fatura_no = element.urun.fatura_no;
-          this.stokPostData.firma_kodu = element.urun.firma_kodu;
-          this.stokPostData.stok_kodu = element.urun.stok_kodu;
-          this.stokPostData.stok_adi = element.urun.stok_adi;
-          this.stokPostData.barkod = element.urun.barkod;
-          this.stokPostData.stok_adet = element.urun.stok_adet;
-          console.log("giden veri=",element)
+        
+          
           
           this.authService.postData(element.urun, "stok_kayit").then((result) => {
             this.gelen = result;
@@ -101,7 +96,7 @@ export class stoksepetprovider {
             this.stokPostData.fatura_no = "";
 
           });
-          index++;
+          
         }
         stok_sepet_list.splice(0, stok_sepet_list.length);
         //console.log(stok_sepet_list)
