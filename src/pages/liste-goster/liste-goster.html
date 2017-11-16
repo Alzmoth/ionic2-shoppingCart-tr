@@ -19,11 +19,7 @@
     <table border="1" class="data-table">
      
       <tr *ngFor="let row of dataSet; let i=index">
-        <td *ngFor="let data of row; let j= index; trackBy:trackByFn">
-          <ion-input type="text" [(ngModel)]="dataSet[i][j]">
-
-          </ion-input>
-        </td>
+     {{row.stok_adi}}
       </tr>
     </table>
   </ion-scroll>

@@ -11,7 +11,7 @@
 <ion-content padding>
  
     
-    <ion-input type="text" [(ngModel)]="stok_fatura.aciklama" placeholder="Açıklama :" clearInput></ion-input>
+    <ion-input *ngIf="sayimsepetUrun.length!=0" type="text" [(ngModel)]="stok_fatura.aciklama" placeholder="Açıklama :" clearInput></ion-input>
 
 
 

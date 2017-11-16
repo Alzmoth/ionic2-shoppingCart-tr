@@ -31,7 +31,7 @@
         <span> {{saatcevir(this.gelen.fatura_tarih) |date: 'dd/MM/yyyy H:mm'}} </span>
       </p>
       <p>
-        <span> Liste Acıklaması: {{this.gelen.aciklama}} </span>
+        <span *ngIf="this.gelen.aciklama!=null"> Liste Acıklaması: {{this.gelen.aciklama}} </span>
       </p>
 
       </ion-card>
