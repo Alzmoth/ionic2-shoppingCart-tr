@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>liste-goster</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="downloadCSV()">
+        <ion-icon name="download"></ion-icon>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-scroll scrollbar-x="true" scrollbar-y="true" class="data-scroll">
+    <table border="1" class="data-table">
+     
+      <tr *ngFor="let row of dataSet; let i=index">
+        <td *ngFor="let data of row; let j= index; trackBy:trackByFn">
+          <ion-input type="text" [(ngModel)]="dataSet[i][j]">
+
+          </ion-input>
+        </td>
+      </tr>
+    </table>
+  </ion-scroll>
+
+</ion-content>
