@@ -18,6 +18,7 @@ export class stoksepetprovider {
     "user_id": "",
     "token": "",
     "stok_kayit_id": "",
+    "aciklama":""
   };
   stokPostData = {
     barkod:0 ,
@@ -27,6 +28,7 @@ export class stoksepetprovider {
     "stok_kodu": "",
     "fatura_no":""
   };
+  public gelenaciklama:any;
 
   gelenveri:any;
 
@@ -70,10 +72,12 @@ export class stoksepetprovider {
       stok_sepet_list.splice(indexNo, 1);
     }
   }
-  stokkayit(){
-    console.log(this.userPostData)
+  stokkayit(gelen){
+    console.log(gelen)
+
     
-    
+    this.userPostData.aciklama=gelen;
+    console.log(this.userPostData);
     this.authService
       .postData(this.userPostData, "stok_kayit_id")//fatura id ve isim kaydediliyor ve fatura no çagırılıyor ve kullanılıyor
       .then((result) => {

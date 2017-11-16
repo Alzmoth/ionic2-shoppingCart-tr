@@ -32,6 +32,9 @@ export class StokSepetPage {
   //liste adı ve userid de gönderilmesi gerekiyor
 
   sayimsepetUrun: SayimSepetUrun[] = [];
+  stok_fatura = {
+    "aciklama": ""
+  }
 
   ionViewDidLoad() {
     this.sayimsepetUrun = this.stoksepetservis.list();
@@ -43,7 +46,8 @@ export class StokSepetPage {
   }
 
   kaydet() {
-    this.stoksepetservis.stokkayit();
+    this.stoksepetservis.stokkayit(this.stok_fatura.aciklama);
+    this.stok_fatura.aciklama="";
     this.showToast();
   }
 

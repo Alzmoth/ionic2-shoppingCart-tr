@@ -22,6 +22,7 @@ export class UrunDetayPage {
   selectedUrun: Urun;
 
 
+
   ionViewDidLoad() {
  
   }
