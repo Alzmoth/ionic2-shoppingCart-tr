@@ -44,7 +44,7 @@ $text-input-md-highlight-color: #2e0a0a;
 //@import "roboto";
 //@import "noto-sans";
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Oxygen';
   font-style: normal;
   font-weight: 400;
   src: url('../assets/fonts/opensans/400/opensans-regular-webfont.ttf');
@@ -71,9 +71,9 @@ $text-input-md-highlight-color: #2e0a0a;
   src: url('../assets/fonts/opensans/900/opensans-extrabold-webfont.ttf');
 }
 
-$font-family-base: "Open Sans";
+$font-family-base: "Oxygen";
 body {
-  font-family: "Open Sans" !important;
+  font-family: "Oxygen" !important;
   font-weight: 400 !important;
 }
 
@@ -81,7 +81,7 @@ h1,
 h2,
 button,
 p {
-  font-family: "Open Sans" !important;
+  font-family: "Oxygen" !important;
 }
 
 @import "../assets/scss/font-awesome/font-awesome";

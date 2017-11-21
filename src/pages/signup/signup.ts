@@ -4,6 +4,7 @@ import {AuthService} from "../../providers/auth-service";
 
 import {TabsPage} from '../tabs/tabs';
 import {Login} from "../login/login";
+import { SiparisTabsPage } from '../siparis-tabs/siparis-tabs';
 
 /**
  * Generated class for the Signup page.
@@ -29,7 +30,7 @@ export class Signup {
     this.resposeData = result;
     console.log(this.resposeData);
     localStorage.setItem('userData', JSON.stringify(this.resposeData) )
-    this.navCtrl.push(TabsPage);
+    this.navCtrl.push(SiparisTabsPage);
     }, (err) => {
       //Connection failed message
     });

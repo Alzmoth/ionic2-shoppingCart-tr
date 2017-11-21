@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage,   } from 'ionic-angular';
+import { IonicPage,NavParams   } from 'ionic-angular';
 import { SiparisListePage } from "../siparis-liste/siparis-liste";
 import { SiparisSepetPage } from "../siparis-sepet/siparis-sepet";
 import { SiparisSatisPage } from "../siparis-satis/siparis-satis";
@@ -18,14 +18,14 @@ import { SiparisSatisPage } from "../siparis-satis/siparis-satis";
 })
 export class SiparisTabsPage {
 
-  urunlerRoot = SiparisSatisPage;
-  sepetRoot = SiparisSepetPage;
-  siparislerRoot = SiparisListePage;
+  tab1Root = SiparisSatisPage;
+  tab2Root = SiparisSepetPage;
+  tab3Root = SiparisListePage;
+   mySelectedIndex: number;
 
-
-  constructor() { 
-   
-
+  constructor(navParams: NavParams) {
+    this.mySelectedIndex = navParams.get('item');
+    console.log("siparis index", this.mySelectedIndex)
   }
   
 }
