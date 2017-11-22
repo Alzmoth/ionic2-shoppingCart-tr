@@ -40,7 +40,7 @@ export class UrunDetayPage {
   showToast(){
     let toast=this.toastController.create({
       message:'Urun Sayim Listesine Eklendi',
-      duration:1000,
+      duration:50,
       position:'bottom'
     });
     toast.present();

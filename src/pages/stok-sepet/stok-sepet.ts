@@ -54,7 +54,7 @@ export class StokSepetPage {
   showToast() {
     let toast = this.toastController.create({
       message: 'Liste kaydedildi',
-      duration: 3000,
+      duration: 1000,
       position: 'middle'
     });
     toast.present();
