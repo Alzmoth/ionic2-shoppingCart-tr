@@ -1,0 +1,117 @@
+ -->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{selectedUrun.stok_adi}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="card-background-page">
+
+
+  <ion-list padding>
+    <h3>Urun Özellikleri</h3>
+    <ion-card padding>
+      <img src="assets/imgs/{{selectedUrun.foto_yolu}}.jpg" style="width: 65%; height: auto;">
+      <hr>
+      <ion-card-content>
+
+          <ion-row>
+            <ion-col col-4>
+            <div>
+              <strong> Firma Kodu :</strong>
+              </div>
+            </ion-col>
+            <ion-col col-auto>
+              <span> {{selectedUrun.firma_kodu}} </span>
+            </ion-col>
+          </ion-row>
+
+        <ion-row>
+          <ion-col col-4>
+            <div>
+              <strong> Urun Adı : </strong>
+            </div>
+          </ion-col>
+          <ion-col col-auto>
+            <span> {{selectedUrun.stok_adi}} </span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-4>
+            <div>
+              <strong> Urun Kodu : </strong>
+            </div>
+          </ion-col>
+          <ion-col col-auto>
+            <span> {{selectedUrun.stok_kodu}} </span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="selectedUrun.barkod!=0">
+          <ion-col col-4>
+            <div>
+              <strong> Barkod : </strong>
+            </div>
+          </ion-col>
+          <ion-col col-auto>
+            <span> {{selectedUrun.barkod}} </span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-4>
+            <div>
+              <strong> Urun Birimi : </strong>
+            </div>
+          </ion-col>
+          <ion-col col-auto>
+            <span> {{selectedUrun.stok_olcu_birim}} </span>
+          </ion-col>
+        </ion-row>
+
+
+        <h2 style="padding-left:40%; padding-top:20px">Satis Fiyati:
+          <strong> {{ (selectedUrun.satis_fiyat-((selectedUrun.satis_fiyat/100)*selectedUrun.sabit_iskonto)) }} TL </strong>
+        </h2>
+
+
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col col-5>
+
+          <ion-item >
+            <ion-label floating>İskonto:</ion-label>
+            <ion-input [(ngModel)]="selectedUrun.sabit_iskonto" type="number" max=50 clearInput></ion-input>
+           
+
+          </ion-item>
+
+        </ion-col>
+        <ion-col col-7>
+
+          <ion-item>
+            <ion-label floating>Adet:</ion-label>
+            <ion-input [(ngModel)]="selectedUrun.stok_adet" type="number" clearInput></ion-input>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+
+
+    </ion-card>
+
+    <div padding>
+      <button block ion-button (click)="addToCart(selectedUrun)">
+        <ion-icon name="basket"></ion-icon>
+      </button>
+    </div>
+
+  </ion-list>
+
+
+</ion-content>

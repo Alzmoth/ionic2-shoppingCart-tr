@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, App, AlertController } from 'ionic-angular';
 import { AuthService } from "../../providers/auth-service";
 import { Common } from "../../providers/common";
-import { UrunDetayPage} from '../urun-detay/urun-detay'
+import { SiparisUrunDetayPage} from '../siparis-urun-detay/siparis-urun-detay'
 
 /**
  * Generated class for the SiparisSatisPage page.
@@ -92,7 +92,7 @@ export class SiparisSatisPage {
 
 
   itemTapped(event, urun) {
-    this.navCtrl.push(UrunDetayPage, { item: urun });
+    this.navCtrl.push(SiparisUrunDetayPage, { item: urun });
 
   }
 

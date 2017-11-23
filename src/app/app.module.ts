@@ -31,6 +31,7 @@ import { SiparisSepetPageModule } from '../pages/siparis-sepet/siparis-sepet.mod
 import { SiparisSatisPage } from '../pages/siparis-satis/siparis-satis'
 import { SiparisSatisPageModule } from '../pages/siparis-satis/siparis-satis.module'
 import { SiparisListePageModule } from '../pages/siparis-liste/siparis-liste.module'
+import { SiparisUrunDetayPage} from '../pages/siparis-urun-detay/siparis-urun-detay'
 
 import { StokSayımPageModule } from '../pages/stok-sayım/stok-sayım.module'
 import { StokSepetPageModule } from '../pages/stok-sepet/stok-sepet.module'
@@ -53,7 +54,8 @@ import { stoksepetprovider } from '../providers/stok-sepet-provider';
     SiparisTabsPage,
     UrunDetayPage,
     StokListeDetayPage,
-    ListeGosterPage
+    ListeGosterPage,
+    SiparisUrunDetayPage
 
   ],
   imports: [
@@ -76,7 +78,8 @@ import { stoksepetprovider } from '../providers/stok-sepet-provider';
     SiparisTabsPage,
     UrunDetayPage,
     StokListeDetayPage,
-    ListeGosterPage
+    ListeGosterPage,
+    SiparisUrunDetayPage
 
   ],
   providers: [
