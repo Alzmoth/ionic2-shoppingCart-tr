@@ -24,6 +24,15 @@ export class SiparisUrunDetayPage {
     public toastController: ToastController) {
     this.selectedUrun = navParams.get('item');
     this.selectedUrun.stok_adet=1;
+    if (this.selectedUrun.stok_olcu_birim=="DZ") {
+      this.selectedUrun.stok_olcu_birim="Düzine"    
+    }
+    if (this.selectedUrun.stok_olcu_birim == "AD") {
+      this.selectedUrun.stok_olcu_birim = "Adet"
+    }
+    if (this.selectedUrun.stok_olcu_birim == "PK") {
+      this.selectedUrun.stok_olcu_birim = "Paket"
+    }
     console.log(this.selectedUrun)
 
 

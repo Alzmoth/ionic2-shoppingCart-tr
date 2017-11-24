@@ -15,7 +15,8 @@
 
         <ion-list>
          <div >
-        <h3>Siparis </h3> 
+        <h5 style="padding-left:5%">Siparis </h5> 
+        <hr>
          </div>
             
           
@@ -26,9 +27,10 @@
         </ion-list>
 
         <ion-list>
-          <ion-list-header>
-           <h2>Stok Sayım </h2> 
-          </ion-list-header>
+        
+           <h5 style="padding-left:5%">Stok Sayım </h5>
+           <hr>
+        
           <button ion-item menuClose *ngFor="let p of stokPages" (click)="openPage(p)">
             <ion-icon item-start [name]="p.icon" ></ion-icon>
             {{p.title}}
@@ -37,9 +39,7 @@
 
 
         <ion-list>
-          <ion-list-header>
-            Logout
-          </ion-list-header>
+         <hr>
           <button ion-item menuClose (click)="logout()">
             <ion-icon item-start name="md-log-in"></ion-icon>
              Çıkış
