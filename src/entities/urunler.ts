@@ -10,4 +10,5 @@ export class Urun {
     max_iskonto:number;
     stok_adet;
     guncelleme_tarih:number;
+    fatura_no: string;
 }

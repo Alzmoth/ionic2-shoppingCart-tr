@@ -23,7 +23,7 @@ export class stoksepetprovider {
   stokPostData = {
     barkod:0 ,
     "firma_kodu": "",
-    stok_adet:3 ,
+    stok_adet:1 ,
     "stok_adi": "",
     "stok_kodu": "",
     "fatura_no":""

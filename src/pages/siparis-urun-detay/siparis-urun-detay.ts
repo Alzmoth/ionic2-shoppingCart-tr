@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
-import { Urun } from '../../entities/satisurun'
+import { SiparisSepetUrun } from '../../entities/siparis-sepet-urun'
 
 import {stoksepetprovider} from '../../providers/stok-sepet-provider'
 /**
@@ -23,21 +23,21 @@ export class SiparisUrunDetayPage {
     public stoksepetservis: stoksepetprovider,
     public toastController: ToastController) {
     this.selectedUrun = navParams.get('item');
-    this.selectedUrun.stok_adet=1;
-    if (this.selectedUrun.stok_olcu_birim=="DZ") {
-      this.selectedUrun.stok_olcu_birim="Düzine"    
+    this.selectedUrun.urun.stok_adet=1;
+    if (this.selectedUrun.urun.stok_olcu_birim=="DZ") {
+      this.selectedUrun.urun.stok_olcu_birim="Düzine"    
     }
-    if (this.selectedUrun.stok_olcu_birim == "AD") {
-      this.selectedUrun.stok_olcu_birim = "Adet"
+    if (this.selectedUrun.urun.stok_olcu_birim == "AD") {
+      this.selectedUrun.urun.stok_olcu_birim = "Adet"
     }
-    if (this.selectedUrun.stok_olcu_birim == "PK") {
-      this.selectedUrun.stok_olcu_birim = "Paket"
+    if (this.selectedUrun.urun.stok_olcu_birim == "PK") {
+      this.selectedUrun.urun.stok_olcu_birim = "Paket"
     }
     console.log(this.selectedUrun)
 
 
   }
-  selectedUrun: Urun;
+  selectedUrun: SiparisSepetUrun;
 
 
 
@@ -46,7 +46,7 @@ export class SiparisUrunDetayPage {
   }
 
 
-  addToCart(urun: Urun) { //yeni addtocard eklenecek satış için
+  addToCart(urun: SiparisSepetUrun) { //yeni addtocard eklenecek satış için
 
     //this.stoksepetservis.addToCart();
     this.showToast();

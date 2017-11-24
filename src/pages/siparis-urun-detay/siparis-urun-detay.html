@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{selectedUrun.stok_adi}}</ion-title>
+    <ion-title>{{selectedUrun.urun.stok_adi}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -14,7 +14,7 @@
   <ion-list padding>
     <h3>Urun Özellikleri</h3>
     <ion-card padding>
-      <img src="assets/imgs/{{selectedUrun.foto_yolu}}.jpg" style="width: 45%; height: auto;">
+      <img src="assets/imgs/{{selectedUrun.urun.foto_yolu}}.jpg" style="width: 45%; height: auto;">
       <hr>
 
 
@@ -24,7 +24,7 @@
 
           <ion-item>
             <ion-label floating>İskonto:</ion-label>
-            <ion-input [(ngModel)]="selectedUrun.sabit_iskonto" type="number" max={{selectedUrun.max_iskonto}} clearInput></ion-input>
+            <ion-input [(ngModel)]="selectedUrun.urun.sabit_iskonto" type="number" max={{selectedUrun.max_iskonto}} clearInput></ion-input>
 
           </ion-item>
 
@@ -33,7 +33,7 @@
 
           <ion-item>
             <ion-label floating>{{selectedUrun.stok_olcu_birim}}:</ion-label>
-            <ion-input [(ngModel)]="selectedUrun.stok_adet" type="number" clearInput></ion-input>
+            <ion-input [(ngModel)]="selectedUrun.urun_adet" type="number" clearInput></ion-input>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -42,12 +42,12 @@
         <ion-col>
         
           <h2 style="padding-top:20px;padding-left:10px">KDV Dahil Liste Fiyati:
-            <strong>  {{selectedUrun.satis_fiyat}} TL  </strong>    </h2>
+            <strong>  {{selectedUrun.urun.satis_fiyat}} TL  </strong>    </h2>
         </ion-col>
 
         <ion-col>
           <h2 style="padding-top:20px;padding-left:10px">Satis Fiyati:
-            <strong> {{ (selectedUrun.satis_fiyat-((selectedUrun.satis_fiyat/100)*selectedUrun.sabit_iskonto)) }} TL </strong>
+            <strong> {{ (selectedUrun.urun.satis_fiyat-((selectedUrun.urun.satis_fiyat/100)*selectedUrun.urun.sabit_iskonto)) }} TL </strong>
           </h2>
 
         </ion-col>
@@ -70,7 +70,7 @@
             </div>
           </ion-col>
           <ion-col col-auto>
-            <span> {{selectedUrun.firma_kodu}} </span>
+            <span> {{selectedUrun.urun.firma_kodu}} </span>
           </ion-col>
         </ion-row>
 
@@ -81,7 +81,7 @@
             </div>
           </ion-col>
           <ion-col col-auto>
-            <span> {{selectedUrun.stok_adi}} </span>
+            <span> {{selectedUrun.urun.stok_adi}} </span>
           </ion-col>
         </ion-row>
 
@@ -92,7 +92,7 @@
             </div>
           </ion-col>
           <ion-col col-auto>
-            <span> {{selectedUrun.stok_kodu}} </span>
+            <span> {{selectedUrun.urun.stok_kodu}} </span>
           </ion-col>
         </ion-row>
 
@@ -103,7 +103,7 @@
             </div>
           </ion-col>
           <ion-col col-auto>
-            <span> {{selectedUrun.barkod}} </span>
+            <span> {{selectedUrun.urun.barkod}} </span>
           </ion-col>
         </ion-row>
 
@@ -114,12 +114,9 @@
             </div>
           </ion-col>
           <ion-col col-auto>
-            <span> {{selectedUrun.stok_olcu_birim}} </span>
+            <span> {{selectedUrun.urun.stok_olcu_birim}} </span>
           </ion-col>
         </ion-row>
-
-
-
 
 
 
